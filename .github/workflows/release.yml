@@ -1,0 +1,54 @@
+name: Create Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+jobs:
+  build:
+    name: Build APKs
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build Debug APK
+        run: ./gradlew assembleDebug
+
+      - name: Build Release APK
+        run: ./gradlew assembleRelease
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          name: "${{ github.event.inputs.version }} — UNITEAPP Android"
+          body: |
+            ## UNITEAPP Android ${{ github.event.inputs.version }}
+
+            ### Установка
+            1. Скачайте APK файл
+            2. Разрешите установку из неизвестных источников
+            3. Установите APK
+
+            ### Использование
+            1. Введите адрес сервера (IP:порт)
+            2. Нажмите "Подключиться"
+            3. Разрешите VPN-соединение
+          files: |
+            app/build/outputs/apk/debug/app-debug.apk
+            app/build/outputs/apk/release/app-release-unsigned.apk
