@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <!-- Logo / Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_subtitle"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="48dp" />
+
+    <!-- Server Address -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/hint_server_address">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_server_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Connect Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_connect"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/btn_connect"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Disconnect Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_disconnect"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/btn_disconnect"
+        android:textSize="16sp"
+        android:enabled="false"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Status -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_status"
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/status_not_connected"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Virtual IP -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_virtual_ip"
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tv_virtual_ip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Peers -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_peers"
+        android:textSize="12sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/tv_peers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:gravity="center" />
+
+</LinearLayout>
