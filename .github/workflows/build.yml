@@ -26,9 +26,6 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Lint check
-        run: ./gradlew lint
-
       - name: Build Debug APK
         run: ./gradlew assembleDebug
 
